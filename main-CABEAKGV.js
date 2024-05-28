@@ -53,8 +53,7 @@ ACTION:${D.action}
 DESCRIPTION:${D.description}
 END:VALARM
 `});let f="";l.forEach(D=>{f+=`ATTACH;FMTTYPE=${D.type}:${D.url}
-`});let p=`
-BEGIN:VCALENDAR
+`});let p=`BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
 SUMMARY:${r}
@@ -63,7 +62,7 @@ DESCRIPTION:${d}
 DTSTART:${o}
 DTEND:${i}
 ${a}
-${u}
-${f}
+${u.trim()}
+${f.trim()} 
 END:VEVENT
-END:VCALENDAR`,y=new Blob([p],{type:"text/calendar"}),h=window.URL.createObjectURL(y),E=document.createElement("a");E.href=h,E.download="event.ics",E.click(),window.URL.revokeObjectURL(h)}generateGoogleCalendarLink(){let{title:r,startDate:o,endDate:i,notes:a}=this.mockCalendarData,s=encodeURIComponent(r),c=encodeURIComponent(a||""),l=o.replace(/[-:]/g,""),d=i.replace(/[-:]/g,""),u=`https://www.google.com/calendar/render?action=TEMPLATE&text=${s}&dates=${l}/${d}&details=${c}`;window.open(u,"_blank")}};t.\u0275fac=function(o){return new(o||t)},t.\u0275cmp=Po({type:t,selectors:[["app-root"]],decls:8,vars:0,consts:[[1,"container"],[3,"click"]],template:function(o,i){o&1&&(gn(0,"div",0),Lt(1,"hr"),gn(2,"button",1),ir("click",function(){return i.generateGoogleCalendarLink()}),ws(3,"Public API Android"),vn(),Lt(4,"hr"),gn(5,"button",1),ir("click",function(){return i.generateICSFile()}),ws(6,".ics file"),vn(),Lt(7,"hr"),vn())},styles:[".container[_ngcontent-%COMP%]{padding:50px;width:30%;display:flex;flex-direction:column}button[_ngcontent-%COMP%]{margin:10px}hr[_ngcontent-%COMP%]{width:100%}add-to-calendar-button[_ngcontent-%COMP%]{width:100%}"]});let e=t;return e})();var lh=(()=>{let t=class t{};t.\u0275fac=function(o){return new(o||t)},t.\u0275mod=Oe({type:t,bootstrap:[ch]}),t.\u0275inj=Ne({imports:[Af,xp]});let e=t;return e})();Mf().bootstrapModule(lh).catch(e=>console.error(e));
+END:VCALENDAR`.trim(),y=new Blob([p],{type:"text/calendar"}),h=window.URL.createObjectURL(y),E=document.createElement("a");E.href=h,E.download="event.ics",E.click(),window.URL.revokeObjectURL(h)}generateGoogleCalendarLink(){let{title:r,startDate:o,endDate:i,notes:a}=this.mockCalendarData,s=encodeURIComponent(r),c=encodeURIComponent(a||""),l=o.replace(/[-:]/g,""),d=i.replace(/[-:]/g,""),u=`https://www.google.com/calendar/render?action=TEMPLATE&text=${s}&dates=${l}/${d}&details=${c}`;window.open(u,"_blank")}};t.\u0275fac=function(o){return new(o||t)},t.\u0275cmp=Po({type:t,selectors:[["app-root"]],decls:8,vars:0,consts:[[1,"container"],[3,"click"]],template:function(o,i){o&1&&(gn(0,"div",0),Lt(1,"hr"),gn(2,"button",1),ir("click",function(){return i.generateGoogleCalendarLink()}),ws(3,"Public API Android"),vn(),Lt(4,"hr"),gn(5,"button",1),ir("click",function(){return i.generateICSFile()}),ws(6,".ics file"),vn(),Lt(7,"hr"),vn())},styles:[".container[_ngcontent-%COMP%]{padding:50px;width:30%;display:flex;flex-direction:column}button[_ngcontent-%COMP%]{margin:10px}hr[_ngcontent-%COMP%]{width:100%}add-to-calendar-button[_ngcontent-%COMP%]{width:100%}"]});let e=t;return e})();var lh=(()=>{let t=class t{};t.\u0275fac=function(o){return new(o||t)},t.\u0275mod=Oe({type:t,bootstrap:[ch]}),t.\u0275inj=Ne({imports:[Af,xp]});let e=t;return e})();Mf().bootstrapModule(lh).catch(e=>console.error(e));
