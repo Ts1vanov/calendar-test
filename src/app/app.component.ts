@@ -16,7 +16,7 @@ export class AppComponent {
     repeat: 'RRULE:FREQ=WEEKLY;COUNT=10',
     alert: [
       {
-        trigger: '-PT30M',
+        trigger: '-PT5H',
         action: 'DISPLAY',
         description: 'Reminder',
       },
@@ -62,8 +62,7 @@ export class AppComponent {
       attachmentsStr += `ATTACH;FMTTYPE=${att.type}:${att.url}\n`;
     });
 
-    const icsContent = `
-BEGIN:VCALENDAR
+    const icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
 SUMMARY:${title}
@@ -72,10 +71,10 @@ DESCRIPTION:${notes}
 DTSTART:${startDate}
 DTEND:${endDate}
 ${repeat}
-${alerts}
-${attachmentsStr}
+${alerts.trim()}
+${attachmentsStr.trim()} 
 END:VEVENT
-END:VCALENDAR`;
+END:VCALENDAR`.trim(); // Trim any leading/trailing whitespace from the entire content
 
     const blob = new Blob([icsContent], { type: 'text/calendar' });
     const url = window.URL.createObjectURL(blob);
